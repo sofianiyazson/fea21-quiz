@@ -21,6 +21,7 @@ const Three = (props) => {
   return (
     <div>
       {numericItems.map((item) => (
+        // Pass the numeric item to the Item component
         <Item text={item} />
       ))}
     </div>

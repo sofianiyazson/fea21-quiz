@@ -14,18 +14,24 @@ const getData = async (url) => {
   return data;
 };
 
-async function getUser() {
+async function getUser(setUser, setLoading) {
+  setLoading(true);
   const user = await getData('https://dummyjson.com/users/1');
   setUser(user);
+  setLoading(false);
 }
 
 const Four = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    getUser();
+    getUser(setUser, setLoading);
   }, []);
 
+  if (loading) {
+    return <div data-testid="four-loading">Loading...</div>;
+  }
   // Rör inte koden under denna kommentaren
   if (!user) {
     return <div data-testid="four-name">No user found</div>;
