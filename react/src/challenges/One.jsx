@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 
 // Gör så att "times" börjar på 0 och ökar med 1 varje gång du trycker på den.
 
